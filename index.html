@@ -19,6 +19,7 @@
   --dark: #2c2c2c;
   --success: #25D366;
   --pending: #C8952A;
+  --danger: #c0392b;
 }
 
 body {
@@ -49,6 +50,7 @@ body {
   padding: 8px 20px;
   min-height: 80px;
   gap: 15px;
+  flex-wrap: wrap;
 }
 .logo-wrapper {
   display: flex;
@@ -76,16 +78,17 @@ body {
   gap: 10px;
   align-items: center;
   flex-shrink: 0;
+  flex-wrap: wrap;
 }
 .track-btn {
   background: transparent;
   color: var(--brown);
   border: 1.5px solid var(--gold);
-  padding: 9px 18px;
+  padding: 9px 16px;
   border-radius: 30px;
   font-family: inherit;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 12px;
   cursor: pointer;
   transition: all 0.3s;
   white-space: nowrap;
@@ -94,6 +97,67 @@ body {
   background: var(--brown);
   color: var(--gold-light);
   border-color: var(--brown);
+}
+.auth-btn {
+  background: transparent;
+  color: var(--brown);
+  border: 1.5px solid var(--brown);
+  padding: 9px 16px;
+  border-radius: 30px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+.auth-btn:hover {
+  background: var(--brown);
+  color: var(--gold-light);
+}
+.auth-btn.primary {
+  background: var(--brown);
+  color: var(--gold-light);
+  border-color: var(--brown);
+}
+.auth-btn.primary:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--beige);
+  padding: 6px 12px 6px 6px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: 1px solid rgba(184, 132, 58, 0.2);
+}
+.user-chip:hover { background: rgba(184, 132, 58, 0.15); }
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  background: var(--brown);
+  color: var(--gold-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.user-chip span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brown);
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .cart-icon {
   position: relative;
@@ -122,7 +186,7 @@ body {
 }
 
 /* ============================
-   HERO — COVER WITH TITLE + BUTTON
+   HERO
 ============================ */
 .hero {
   position: relative;
@@ -556,6 +620,248 @@ body {
   background: var(--gold);
   margin: 10px auto 0;
 }
+
+/* AUTH MODAL */
+.auth-tabs {
+  display: flex;
+  gap: 6px;
+  background: var(--beige);
+  padding: 5px;
+  border-radius: 30px;
+  margin-bottom: 24px;
+}
+.auth-tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  border-radius: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--brown-light);
+  transition: all 0.3s;
+  border: none;
+  background: transparent;
+}
+.auth-tab.active {
+  background: var(--brown);
+  color: var(--gold-light);
+  box-shadow: 0 3px 10px rgba(74, 44, 26, 0.25);
+}
+.auth-form { display: none; }
+.auth-form.active { display: block; }
+.auth-field {
+  margin-bottom: 14px;
+}
+.auth-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brown);
+  margin-bottom: 6px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.3px;
+}
+.auth-field input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1px solid rgba(184, 132, 58, 0.3);
+  background: #fff;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--brown);
+  transition: border 0.2s;
+}
+.auth-field input:focus { outline: none; border-color: var(--gold); }
+.auth-field input::placeholder { color: #b8a898; }
+.auth-field .field-hint {
+  font-size: 11px;
+  color: #8a7a6a;
+  margin-top: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+.auth-field .field-error {
+  font-size: 11.5px;
+  color: var(--danger);
+  margin-top: 5px;
+  font-family: 'Poppins', sans-serif;
+  display: none;
+}
+.auth-field.error input { border-color: var(--danger); }
+.auth-field.error .field-error { display: block; }
+.auth-submit {
+  width: 100%;
+  padding: 15px;
+  background: var(--brown);
+  color: var(--gold-light);
+  border: none;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+.auth-submit:hover { background: var(--gold); color: #fff; }
+.auth-submit:disabled { background: #a89888; cursor: not-allowed; }
+.auth-switch {
+  text-align: center;
+  font-size: 12.5px;
+  color: #8a7a6a;
+  margin-top: 18px;
+  font-family: 'Poppins', sans-serif;
+}
+.auth-switch a {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.auth-switch a:hover { text-decoration: underline; }
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: #b8a898;
+  font-size: 11px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(184, 132, 58, 0.25);
+}
+.verify-box {
+  background: rgba(184, 132, 58, 0.08);
+  border: 1px dashed var(--gold);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  text-align: center;
+}
+.verify-box .verify-icon {
+  font-size: 38px;
+  margin-bottom: 8px;
+}
+.verify-box h4 {
+  color: var(--brown);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-family: 'Poppins', sans-serif;
+}
+.verify-box p {
+  font-size: 12.5px;
+  color: #8a7a6a;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+.verify-box .verify-email {
+  color: var(--gold);
+  font-weight: 600;
+  word-break: break-all;
+}
+.verify-inputs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 16px 0;
+}
+.verify-inputs input {
+  width: 44px;
+  height: 52px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  border: 1.5px solid rgba(184, 132, 58, 0.3);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--brown);
+  font-family: 'Poppins', sans-serif;
+}
+.verify-inputs input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 132, 58, 0.15);
+}
+.resend-link {
+  text-align: center;
+  font-size: 12px;
+  color: #8a7a6a;
+  margin-top: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+.resend-link a {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.resend-link a:hover { text-decoration: underline; }
+.resend-link a.disabled {
+  color: #b8a898;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* USER DROPDOWN */
+.user-menu {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 15px 45px rgba(59, 31, 15, 0.2);
+  border: 1px solid rgba(184, 132, 58, 0.2);
+  min-width: 220px;
+  z-index: 500;
+  display: none;
+  overflow: hidden;
+  animation: modalIn 0.25s ease;
+}
+.user-menu.active { display: block; }
+.user-menu-header {
+  padding: 16px 18px;
+  background: var(--brown);
+  color: #fff;
+}
+.user-menu-header .name {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+.user-menu-header .email {
+  font-size: 11.5px;
+  opacity: 0.85;
+  font-family: 'Poppins', sans-serif;
+  word-break: break-all;
+}
+.user-menu ul { list-style: none; padding: 6px 0; }
+.user-menu ul li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  font-size: 13px;
+  color: var(--brown);
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.2s;
+}
+.user-menu ul li a:hover { background: var(--beige); color: var(--gold); }
+.user-menu ul li a.logout { color: var(--danger); }
+.user-menu ul li a.logout:hover { background: rgba(192, 57, 43, 0.08); }
+
+/* FORM INPUTS */
 #orderForm input[type="text"],
 #orderForm input[type="tel"],
 #orderForm textarea {
@@ -962,6 +1268,8 @@ body {
   box-shadow: 0 10px 30px rgba(59, 31, 15, 0.3);
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.toast.error { background: var(--danger); border-color: #e74c3c; color: #fff; }
+.toast.success { background: var(--success); border-color: #1da851; color: #fff; }
 
 /* FLOATING WA */
 .float-wa {
@@ -984,9 +1292,14 @@ body {
   border: 2px solid var(--gold);
 }
 .float-wa:hover { transform: scale(1.1) rotate(5deg); background: var(--gold); color: #fff; }
+.float-wa svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
 
 /* ============================
-   FOOTER — 4 Column Layout
+   FOOTER
 ============================ */
 .footer {
   background: #FAF6F0;
@@ -1169,11 +1482,13 @@ body {
   .payment-options { grid-template-columns: 1fr; }
   .modal-content { padding: 26px 20px; }
   .float-wa { width: 52px; height: 52px; font-size: 24px; bottom: 20px; right: 20px; }
+  .float-wa svg { width: 24px; height: 24px; }
   .success-icon { width: 70px; height: 70px; font-size: 34px; }
-  .track-btn { font-size: 11px; padding: 7px 12px; }
+  .track-btn, .auth-btn { font-size: 10px; padding: 6px 10px; }
   .logo-img { height: 42px; max-width: 130px; }
-  .header-inner { padding: 8px 12px; min-height: 60px; gap: 8px; }
+  .header-inner { padding: 8px 12px; min-height: 60px; gap: 6px; }
   .cart-icon { font-size: 20px; padding: 6px 10px; }
+  .user-chip span { max-width: 60px; font-size: 11px; }
   .section-tagline { font-size: 10px; letter-spacing: 3px; }
   .track-input-box { flex-direction: column; }
   .track-input-box button { padding: 14px; }
@@ -1188,19 +1503,13 @@ body {
     gap: 30px;
     padding: 0 20px 35px;
   }
-  .footer-col h4 {
-    font-size: 17px;
-    margin-bottom: 16px;
-  }
+  .footer-col h4 { font-size: 17px; margin-bottom: 16px; }
   .footer-about p,
   .footer-links a,
-  .footer-newsletter p {
-    font-size: 13px;
-  }
-  .newsletter-form button {
-    align-self: stretch;
-    width: 100%;
-  }
+  .footer-newsletter p { font-size: 13px; }
+  .newsletter-form button { align-self: stretch; width: 100%; }
+  .verify-inputs input { width: 38px; height: 46px; font-size: 17px; }
+  .user-menu { right: 10px; left: 10px; min-width: auto; }
 }
 @media (max-width: 380px) {
   .hero { min-height: 300px; padding: 35px 10px; }
@@ -1208,7 +1517,7 @@ body {
   .btn-primary { padding: 9px 20px; font-size: 9px; letter-spacing: 1.5px; gap: 6px; }
   .btn-primary .cart-symbol { font-size: 12px; }
   .logo-img { height: 38px; max-width: 110px; }
-  .track-btn { font-size: 10px; padding: 6px 10px; }
+  .track-btn, .auth-btn { font-size: 9px; padding: 5px 8px; }
 }
 </style>
 </head>
@@ -1224,6 +1533,10 @@ body {
     </a>
     <div class="header-actions">
       <button class="track-btn" onclick="openTrack()">🚚 Track Order</button>
+      <div id="authArea">
+        <button class="auth-btn" onclick="openAuth('login')">Login</button>
+        <button class="auth-btn primary" onclick="openAuth('signup')">Sign Up</button>
+      </div>
       <div class="cart-icon" onclick="toggleCart()">
         🛒 <span id="cartCount">0</span>
       </div>
@@ -1231,7 +1544,21 @@ body {
   </div>
 </header>
 
-<!-- ============ HERO WITH COVER ============ -->
+<!-- User dropdown menu -->
+<div class="user-menu" id="userMenu">
+  <div class="user-menu-header">
+    <div class="name" id="userMenuName">—</div>
+    <div class="email" id="userMenuEmail">—</div>
+  </div>
+  <ul>
+    <li><a href="#" onclick="openMyOrders(event)">📦 My Orders</a></li>
+    <li><a href="#" onclick="openTrack()">🚚 Track Order</a></li>
+    <li><a href="#" onclick="showToast('Profile page coming soon')">👤 My Profile</a></li>
+    <li><a href="#" class="logout" onclick="logoutUser(event)">🚪 Logout</a></li>
+  </ul>
+</div>
+
+<!-- ============ HERO ============ -->
 <section class="hero">
   <div class="hero-content">
     <h1 class="hero-title">CRAFTED WITH PURPOSE</h1>
@@ -1241,8 +1568,6 @@ body {
     </a>
   </div>
 </section>
-
-
 
 <!-- ============ PRODUCTS ============ -->
 <section id="products" class="products">
@@ -1260,28 +1585,25 @@ body {
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="footer-grid">
-
-    <!-- Column 1: About -->
     <div class="footer-col footer-about">
       <h4>About Amal Fashion</h4>
       <p>Amal Fashion is a premium modest fashion brand where timeless elegance meets exceptional craftsmanship with graceful Islamic tradition.</p>
       <div class="footer-social">
-        <a href="#" aria-label="Facebook">
+        <a href="https://www.facebook.com/profile.php?id=61579141070256" target="_blank" rel="noopener" aria-label="Facebook">
           <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </a>
-        <a href="#" aria-label="Instagram">
+        <a href="https://www.instagram.com/amalfashion.21/" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
         </a>
-        <a href="#" aria-label="Email">
+        <a href="mailto:amalfashion26@gmail.com" aria-label="Email">
           <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </a>
-        <a href="#" aria-label="WhatsApp">
+        <a href="https://wa.me/8801352317969" target="_blank" rel="noopener" aria-label="WhatsApp">
           <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
       </div>
     </div>
 
-    <!-- Column 2: Quick Links -->
     <div class="footer-col">
       <h4>Quick Links</h4>
       <ul class="footer-links">
@@ -1293,19 +1615,17 @@ body {
       </ul>
     </div>
 
-    <!-- Column 3: See More -->
     <div class="footer-col">
       <h4>See More</h4>
       <ul class="footer-links">
         <li><a href="#">Our Store</a></li>
         <li><a href="#">My Wishlist</a></li>
-        <li><a href="#">My Account</a></li>
+        <li><a href="#" onclick="openMyOrders(event)">My Orders</a></li>
         <li><a href="#">Special Offers</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="#" onclick="logoutUser(event)">Logout</a></li>
       </ul>
     </div>
 
-    <!-- Column 4: Newsletter -->
     <div class="footer-col footer-newsletter">
       <h4>Join Our Mailing List</h4>
       <p>Subscribe to our Newsletter to stay with us</p>
@@ -1314,17 +1634,19 @@ body {
         <button type="submit">Sign Up</button>
       </form>
     </div>
-
   </div>
 
-  <!-- Footer Bottom -->
   <div class="footer-bottom">
-    <p>© 2025 Amal Fashion. All rights reserved. | 📱 WhatsApp: <a href="#" id="footerWa"></a></p>
+    <p>© 2025 Amal Fashion. All rights reserved. | 📱 WhatsApp: <a href="https://wa.me/8801352317969" target="_blank" rel="noopener">+8801352317969</a></p>
   </div>
 </footer>
 
 <!-- Floating WhatsApp -->
-<a href="#" class="float-wa" id="floatWa" target="_blank">💬</a>
+<a href="https://wa.me/8801352317969" class="float-wa" id="floatWa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
 
 <!-- ============ CART SIDEBAR ============ -->
 <div class="cart-sidebar" id="cartSidebar">
@@ -1341,6 +1663,109 @@ body {
   </div>
 </div>
 <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+<!-- ============ AUTH MODAL (LOGIN / SIGNUP / VERIFY) ============ -->
+<div class="modal" id="authModal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeAuth()">✕</span>
+
+    <!-- Login / Signup Tabs -->
+    <div id="authMain">
+      <h3 id="authTitle">Welcome Back</h3>
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">Login</button>
+        <button class="auth-tab" id="tabSignup" onclick="switchAuthTab('signup')">Sign Up</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form class="auth-form active" id="loginForm" onsubmit="handleLogin(event)">
+        <div class="auth-field" id="loginEmailField">
+          <label>Email Address</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email" required>
+          <div class="field-error">সঠিক email দিন</div>
+        </div>
+        <div class="auth-field" id="loginPassField">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password" required>
+          <div class="field-error">Password কমপক্ষে ৬ অক্ষরের হতে হবে</div>
+        </div>
+        <button type="submit" class="auth-submit" id="loginBtn">Login</button>
+        <div class="auth-switch">
+          নতুন user? <a onclick="switchAuthTab('signup')">Sign Up করুন</a>
+        </div>
+      </form>
+
+      <!-- SIGNUP FORM -->
+      <form class="auth-form" id="signupForm" onsubmit="handleSignup(event)">
+        <div class="auth-field" id="signupNameField">
+          <label>Full Name</label>
+          <input type="text" id="signupName" placeholder="আপনার নাম" autocomplete="name" required>
+          <div class="field-error">নাম দিন</div>
+        </div>
+        <div class="auth-field" id="signupEmailField">
+          <label>Email Address</label>
+          <input type="email" id="signupEmail" placeholder="you@example.com" autocomplete="email" required>
+          <div class="field-error">সঠিক email দিন</div>
+        </div>
+        <div class="auth-field" id="signupPassField">
+          <label>Password</label>
+          <input type="password" id="signupPassword" placeholder="কমপক্ষে ৬ অক্ষর" autocomplete="new-password" required>
+          <div class="field-hint">কমপক্ষে ৬ অক্ষর ব্যবহার করুন</div>
+          <div class="field-error">Password কমপক্ষে ৬ অক্ষরের হতে হবে</div>
+        </div>
+        <div class="auth-field" id="signupConfirmField">
+          <label>Confirm Password</label>
+          <input type="password" id="signupConfirm" placeholder="আবার লিখুন" autocomplete="new-password" required>
+          <div class="field-error">Password মিলছে না</div>
+        </div>
+        <button type="submit" class="auth-submit" id="signupBtn">Create Account</button>
+        <div class="auth-switch">
+          আগে থেকেই account আছে? <a onclick="switchAuthTab('login')">Login করুন</a>
+        </div>
+      </form>
+    </div>
+
+    <!-- EMAIL VERIFICATION SCREEN -->
+    <div id="verifyScreen" style="display:none;">
+      <h3>Verify Your Email</h3>
+      <div class="verify-box">
+        <div class="verify-icon">📧</div>
+        <h4>Verification Code পাঠানো হয়েছে</h4>
+        <p>আমরা <span class="verify-email" id="verifyEmailDisplay">your@email.com</span> এ একটি ৬ সংখ্যার কোড পাঠিয়েছি।</p>
+      </div>
+      <p style="text-align:center; font-size:12.5px; color:#8a7a6a; margin-bottom:10px; font-family:'Poppins',sans-serif;">
+        নিচে কোডটি লিখুন:
+      </p>
+      <div class="verify-inputs">
+        <input type="text" maxlength="1" inputmode="numeric" id="v1" oninput="moveNext(this,'v2')" onkeydown="movePrev(event,this)">
+        <input type="text" maxlength="1" inputmode="numeric" id="v2" oninput="moveNext(this,'v3')" onkeydown="movePrev(event,this)">
+        <input type="text" maxlength="1" inputmode="numeric" id="v3" oninput="moveNext(this,'v4')" onkeydown="movePrev(event,this)">
+        <input type="text" maxlength="1" inputmode="numeric" id="v4" oninput="moveNext(this,'v5')" onkeydown="movePrev(event,this)">
+        <input type="text" maxlength="1" inputmode="numeric" id="v5" oninput="moveNext(this,'v6')" onkeydown="movePrev(event,this)">
+        <input type="text" maxlength="1" inputmode="numeric" id="v6" onkeydown="movePrev(event,this)">
+      </div>
+      <div id="verifyError" style="text-align:center; color:var(--danger); font-size:12.5px; font-family:'Poppins',sans-serif; display:none; margin-bottom:8px;">
+        ❌ ভুল কোড। আবার চেষ্টা করুন।
+      </div>
+      <button class="auth-submit" id="verifyBtn" onclick="handleVerify()">Verify & Continue</button>
+      <div class="resend-link">
+        কোড পাননি? <a id="resendLink" onclick="resendCode()">Resend Code</a>
+      </div>
+      <div class="auth-switch" style="margin-top:14px;">
+        <a onclick="backToSignup()">← ফিরে যান</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MY ORDERS MODAL ============ -->
+<div class="modal" id="myOrdersModal">
+  <div class="modal-content" style="max-width:560px;">
+    <span class="close-modal" onclick="closeMyOrders()">✕</span>
+    <h3>My Orders</h3>
+    <div id="myOrdersList"></div>
+  </div>
+</div>
 
 <!-- ============ CHECKOUT MODAL ============ -->
 <div class="modal" id="checkoutModal">
@@ -1428,29 +1853,39 @@ body {
 // ⚙️ CONFIGURATION
 // ==========================================
 const CONFIG = {
-  ADMIN_WHATSAPP: "8801969120711",
+  ADMIN_WHATSAPP: "8801352317969",
   DELIVERY_CHARGE: 80,
   BKASH_NUMBER: "01969120711",
   NAGAD_NUMBER: "01969120711",
   ROCKET_NUMBER: "01969120711",
-  GOOGLE_SHEET_URL: "https://script.google.com/macros/s/AKfycbxtlfwqSnAaxgR1feFh3D5O1Jq4zF157nuzeaNLQtaAaT1GXPsNDu5dImH-oGo_O705JQ/exec"
+  GOOGLE_SHEET_URL: "https://script.google.com/macros/s/AKfycbxtlfwqSnAaxgR1feFh3D5O1Jq4zF157nuzeaNLQtaAaT1GXPsNDu5dImH-oGo_O705JQ/exec",
+  // Demo verification code (in real app, this would be sent via email backend)
+  DEMO_VERIFICATION_CODE: "123456"
 };
 
 // ==========================================
 // 📦 PRODUCTS
 // ==========================================
 const products = [
-  { id: 1, name: "Premium Black Barka", price: 1450, oldPrice: 1800, image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500", badge: "Bestseller" },
-  { id: 2, name: "Elegant Beige Abaya", price: 1650, oldPrice: 2000, image: "https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=500", badge: "New" },
-  { id: 3, name: "Dubai Style Barka", price: 1950, oldPrice: 2400, image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500", badge: "" },
-  { id: 4, name: "Luxury Navy Abaya", price: 1850, oldPrice: 2200, image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=500", badge: "" },
-  { id: 5, name: "Classic Black Abaya", price: 1550, oldPrice: 1900, image: "https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?w=500", badge: "" },
-  { id: 6, name: "Embroidered Barka", price: 2250, oldPrice: 2800, image: "https://images.unsplash.com/photo-1551232864-3f0890e580d9?w=500", badge: "Premium" },
-  { id: 7, name: "Maroon Open Abaya", price: 1750, oldPrice: 2100, image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=500", badge: "" },
-  { id: 8, name: "Silk Premium Barka", price: 2450, oldPrice: 3000, image: "https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=500", badge: "Luxury" }
+  { id: 1, name: "Premium Yellow Barka", price: 1899, oldPrice: 2200, image: "img1.jpg", badge: "Bestseller" },
+  { id: 2, name: "Elegant Bronze Abaya", price: 2450, oldPrice: 2500, image: "img2.jpg", badge: "New" },
+  { id: 3, name: "Dubai Style Black Abaya", price: 2450, oldPrice: 2500, image: "img3.jpg", badge: "" },
+  { id: 4, name: "Luxury Teal Abaya", price: 2450, oldPrice: 2500, image: "img4.jpg", badge: "" },
+  { id: 5, name: "Classic Blue Abaya", price: 2450, oldPrice: 2500, image: "img5.jpg", badge: "" },
+  { id: 6, name: "Embroidered Olive Barka", price: 2450, oldPrice: 2500, image: "img6.jpg", badge: "Premium" },
+  { id: 7, name: "Maroon Open Abaya", price: 2450, oldPrice: 2500, image: "img7.jpg", badge: "" },
+  { id: 8, name: "Silk Premium Black Barka", price: 2450, oldPrice: 2500, image: "img8.jpg", badge: "Luxury" }
 ];
 
 let cart = JSON.parse(localStorage.getItem("amalCart")) || [];
+
+// ==========================================
+// 👤 AUTH STATE
+// ==========================================
+let currentUser = JSON.parse(localStorage.getItem("amalCurrentUser")) || null;
+let users = JSON.parse(localStorage.getItem("amalUsers")) || [];
+let pendingUser = null; // User waiting for verification
+let resendTimer = null;
 
 // ==========================================
 // 🖼️ RENDER PRODUCTS
@@ -1481,7 +1916,7 @@ function addToCart(id) {
   else cart.push({ ...product, qty: 1 });
   saveCart();
   updateCartUI();
-  showToast("✓ Added to cart");
+  showToast("✓ Added to cart", "success");
 }
 function removeFromCart(id) {
   cart = cart.filter(i => i.id !== id);
@@ -1525,6 +1960,305 @@ function updateCartUI() {
 }
 
 // ==========================================
+// 🔐 AUTH LOGIC
+// ==========================================
+function openAuth(tab) {
+  document.getElementById("authModal").classList.add("active");
+  document.getElementById("authMain").style.display = "block";
+  document.getElementById("verifyScreen").style.display = "none";
+  switchAuthTab(tab || "login");
+}
+function closeAuth() {
+  document.getElementById("authModal").classList.remove("active");
+  clearVerifyInputs();
+  if (resendTimer) { clearInterval(resendTimer); resendTimer = null; }
+}
+function switchAuthTab(tab) {
+  document.getElementById("authMain").style.display = "block";
+  document.getElementById("verifyScreen").style.display = "none";
+  const tabLogin = document.getElementById("tabLogin");
+  const tabSignup = document.getElementById("tabSignup");
+  const loginForm = document.getElementById("loginForm");
+  const signupForm = document.getElementById("signupForm");
+  const title = document.getElementById("authTitle");
+
+  if (tab === "login") {
+    tabLogin.classList.add("active");
+    tabSignup.classList.remove("active");
+    loginForm.classList.add("active");
+    signupForm.classList.remove("active");
+    title.textContent = "Welcome Back";
+  } else {
+    tabSignup.classList.add("active");
+    tabLogin.classList.remove("active");
+    signupForm.classList.add("active");
+    loginForm.classList.remove("active");
+    title.textContent = "Create Account";
+  }
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+function setFieldError(fieldId, hasError) {
+  const el = document.getElementById(fieldId);
+  if (hasError) el.classList.add("error");
+  else el.classList.remove("error");
+}
+
+function handleLogin(e) {
+  e.preventDefault();
+  const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+  const password = document.getElementById("loginPassword").value;
+
+  let valid = true;
+  setFieldError("loginEmailField", false);
+  setFieldError("loginPassField", false);
+
+  if (!isValidEmail(email)) { setFieldError("loginEmailField", true); valid = false; }
+  if (password.length < 6) { setFieldError("loginPassField", true); valid = false; }
+  if (!valid) return;
+
+  const user = users.find(u => u.email === email);
+  if (!user) {
+    setFieldError("loginEmailField", true);
+    showToast("❌ এই email দিয়ে কোনো account নেই", "error");
+    return;
+  }
+  if (user.password !== password) {
+    setFieldError("loginPassField", true);
+    showToast("❌ Password ভুল", "error");
+    return;
+  }
+  if (!user.verified) {
+    showToast("⚠️ Email verify করুন আগে", "error");
+    pendingUser = { ...user };
+    showVerifyScreen(email);
+    return;
+  }
+  // Success
+  currentUser = user;
+  localStorage.setItem("amalCurrentUser", JSON.stringify(currentUser));
+  updateAuthUI();
+  closeAuth();
+  showToast(`✓ Welcome back, ${user.name}!`, "success");
+}
+
+function handleSignup(e) {
+  e.preventDefault();
+  const name = document.getElementById("signupName").value.trim();
+  const email = document.getElementById("signupEmail").value.trim().toLowerCase();
+  const password = document.getElementById("signupPassword").value;
+  const confirm = document.getElementById("signupConfirm").value;
+
+  let valid = true;
+  setFieldError("signupNameField", false);
+  setFieldError("signupEmailField", false);
+  setFieldError("signupPassField", false);
+  setFieldError("signupConfirmField", false);
+
+  if (name.length < 2) { setFieldError("signupNameField", true); valid = false; }
+  if (!isValidEmail(email)) { setFieldError("signupEmailField", true); valid = false; }
+  if (password.length < 6) { setFieldError("signupPassField", true); valid = false; }
+  if (password !== confirm) { setFieldError("signupConfirmField", true); valid = false; }
+  if (!valid) return;
+
+  if (users.some(u => u.email === email)) {
+    setFieldError("signupEmailField", true);
+    showToast("❌ এই email দিয়ে already account আছে", "error");
+    return;
+  }
+
+  // Create pending user
+  pendingUser = { name, email, password, verified: false, createdAt: new Date().toISOString() };
+  showVerifyScreen(email);
+  showToast("📧 Verification code পাঠানো হয়েছে (demo: 123456)", "success");
+}
+
+function showVerifyScreen(email) {
+  document.getElementById("authMain").style.display = "none";
+  document.getElementById("verifyScreen").style.display = "block";
+  document.getElementById("verifyEmailDisplay").textContent = email;
+  document.getElementById("verifyError").style.display = "none";
+  clearVerifyInputs();
+  document.getElementById("v1").focus();
+  startResendTimer(30);
+}
+
+function backToSignup() {
+  document.getElementById("verifyScreen").style.display = "none";
+  document.getElementById("authMain").style.display = "block";
+  switchAuthTab("signup");
+}
+
+function clearVerifyInputs() {
+  for (let i = 1; i <= 6; i++) {
+    const el = document.getElementById("v" + i);
+    if (el) el.value = "";
+  }
+  document.getElementById("verifyError").style.display = "none";
+}
+
+function moveNext(el, nextId) {
+  el.value = el.value.replace(/[^0-9]/g, "");
+  if (el.value.length === 1 && nextId) {
+    document.getElementById(nextId).focus();
+  }
+}
+function movePrev(e, el) {
+  if (e.key === "Backspace" && !el.value) {
+    const prev = el.previousElementSibling;
+    if (prev && prev.tagName === "INPUT") prev.focus();
+  }
+}
+
+function handleVerify() {
+  let code = "";
+  for (let i = 1; i <= 6; i++) code += document.getElementById("v" + i).value;
+  if (code.length !== 6) {
+    document.getElementById("verifyError").style.display = "block";
+    document.getElementById("verifyError").textContent = "❌ ৬ সংখ্যার কোড লিখুন";
+    return;
+  }
+  if (code !== CONFIG.DEMO_VERIFICATION_CODE) {
+    document.getElementById("verifyError").style.display = "block";
+    document.getElementById("verifyError").textContent = "❌ ভুল কোড। Demo code: 123456";
+    return;
+  }
+  // Verified
+  if (pendingUser) {
+    pendingUser.verified = true;
+    // Save user
+    const existingIndex = users.findIndex(u => u.email === pendingUser.email);
+    if (existingIndex >= 0) users[existingIndex] = pendingUser;
+    else users.push(pendingUser);
+    localStorage.setItem("amalUsers", JSON.stringify(users));
+
+    currentUser = pendingUser;
+    localStorage.setItem("amalCurrentUser", JSON.stringify(currentUser));
+    pendingUser = null;
+
+    updateAuthUI();
+    closeAuth();
+    showToast(`✓ Account verified! Welcome, ${currentUser.name}!`, "success");
+  }
+}
+
+function startResendTimer(seconds) {
+  const link = document.getElementById("resendLink");
+  link.classList.add("disabled");
+  let remaining = seconds;
+  link.textContent = `Resend Code (${remaining}s)`;
+  if (resendTimer) clearInterval(resendTimer);
+  resendTimer = setInterval(() => {
+    remaining--;
+    if (remaining <= 0) {
+      clearInterval(resendTimer);
+      resendTimer = null;
+      link.classList.remove("disabled");
+      link.textContent = "Resend Code";
+    } else {
+      link.textContent = `Resend Code (${remaining}s)`;
+    }
+  }, 1000);
+}
+
+function resendCode() {
+  if (document.getElementById("resendLink").classList.contains("disabled")) return;
+  showToast("📧 নতুন code পাঠানো হয়েছে (demo: 123456)", "success");
+  clearVerifyInputs();
+  document.getElementById("v1").focus();
+  startResendTimer(30);
+}
+
+function logoutUser(e) {
+  if (e) e.preventDefault();
+  currentUser = null;
+  localStorage.removeItem("amalCurrentUser");
+  updateAuthUI();
+  closeUserMenu();
+  showToast("✓ Logged out", "success");
+}
+
+function updateAuthUI() {
+  const authArea = document.getElementById("authArea");
+  const userMenu = document.getElementById("userMenu");
+  if (currentUser) {
+    const initial = (currentUser.name || currentUser.email).charAt(0).toUpperCase();
+    authArea.innerHTML = `
+      <div class="user-chip" onclick="toggleUserMenu(event)">
+        <div class="user-avatar">${initial}</div>
+        <span>${currentUser.name || currentUser.email.split('@')[0]}</span>
+      </div>
+    `;
+    document.getElementById("userMenuName").textContent = currentUser.name || "User";
+    document.getElementById("userMenuEmail").textContent = currentUser.email;
+  } else {
+    authArea.innerHTML = `
+      <button class="auth-btn" onclick="openAuth('login')">Login</button>
+      <button class="auth-btn primary" onclick="openAuth('signup')">Sign Up</button>
+    `;
+    userMenu.classList.remove("active");
+  }
+}
+
+function toggleUserMenu(e) {
+  if (e) e.stopPropagation();
+  document.getElementById("userMenu").classList.toggle("active");
+}
+function closeUserMenu() {
+  document.getElementById("userMenu").classList.remove("active");
+}
+
+// Close user menu on outside click
+document.addEventListener("click", (e) => {
+  const menu = document.getElementById("userMenu");
+  const chip = document.querySelector(".user-chip");
+  if (menu && menu.classList.contains("active")) {
+    if (chip && !chip.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.remove("active");
+    }
+  }
+});
+
+// ==========================================
+// 📦 MY ORDERS (from local history)
+// ==========================================
+function openMyOrders(e) {
+  if (e) e.preventDefault();
+  if (!currentUser) {
+    showToast("⚠️ আগে login করুন", "error");
+    openAuth("login");
+    return;
+  }
+  const orders = JSON.parse(localStorage.getItem("amalOrderHistory") || "[]");
+  const userOrders = orders.filter(o => o.email === currentUser.email);
+  const list = document.getElementById("myOrdersList");
+  if (userOrders.length === 0) {
+    list.innerHTML = `
+      <div class="not-found active" style="display:block;">
+        <div class="icon">📦</div>
+        <h4>কোনো order নেই</h4>
+        <p>আপনি এখনো কোনো order করেননি।</p>
+      </div>`;
+  } else {
+    list.innerHTML = userOrders.reverse().map(o => `
+      <div class="track-order-summary" style="margin-bottom:14px;">
+        <div class="row"><strong>🆔 ${o.orderId}</strong><span>${o.date || ""}</span></div>
+        <div class="row"><strong>💰 Total</strong><span>৳${o.total}</span></div>
+        <div class="row"><strong>📌 Status</strong><span>${(o.orderStatus || "pending").toUpperCase()}</span></div>
+        <div class="row"><strong>💳 Payment</strong><span>${o.payment}</span></div>
+      </div>
+    `).join("");
+  }
+  document.getElementById("myOrdersModal").classList.add("active");
+  closeUserMenu();
+}
+function closeMyOrders() {
+  document.getElementById("myOrdersModal").classList.remove("active");
+}
+
+// ==========================================
 // 🔀 UI TOGGLES
 // ==========================================
 function toggleCart() {
@@ -1532,10 +2266,16 @@ function toggleCart() {
   document.getElementById("overlay").classList.toggle("active");
 }
 function openCheckout() {
-  if (cart.length === 0) { showToast("Cart is empty"); return; }
+  if (cart.length === 0) { showToast("Cart is empty", "error"); return; }
   toggleCart();
   updatePaymentInstructions();
   updateOrderSummary();
+  // Prefill from logged in user
+  if (currentUser) {
+    if (currentUser.name) document.getElementById("customerName").value = currentUser.name;
+    if (currentUser.phone) document.getElementById("customerPhone").value = currentUser.phone;
+    if (currentUser.address) document.getElementById("customerAddress").value = currentUser.address;
+  }
   document.getElementById("checkoutModal").classList.add("active");
 }
 function closeCheckout() { document.getElementById("checkoutModal").classList.remove("active"); }
@@ -1581,7 +2321,7 @@ async function trackOrder() {
   const input = document.getElementById("trackInput").value.trim().toUpperCase();
   const resultEl = document.getElementById("statusResult");
   const notFoundEl = document.getElementById("notFound");
-  if (!input) { showToast("Order ID লিখুন"); return; }
+  if (!input) { showToast("Order ID লিখুন", "error"); return; }
   resultEl.classList.remove("active");
   notFoundEl.classList.remove("active");
   resultEl.innerHTML = '<p style="text-align:center; padding:20px; color:#8a7a6a;">⏳ Searching...</p>';
@@ -1688,6 +2428,16 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
     subtotal, delivery, total, date: now, orderStatus: "pending"
   };
 
+  // Save to local order history
+  const history = JSON.parse(localStorage.getItem("amalOrderHistory") || "[]");
+  history.push({
+    orderId, total, payment, date: now,
+    orderStatus: "pending",
+    email: currentUser ? currentUser.email : "guest",
+    name, phone, address
+  });
+  localStorage.setItem("amalOrderHistory", JSON.stringify(history));
+
   // Google Sheet
   try {
     const params = new URLSearchParams({
@@ -1737,6 +2487,18 @@ Status: 🕐 PENDING
   `;
   document.getElementById("waConfirmBtn").href = adminWaUrl;
 
+  // Save phone/address to user profile if logged in
+  if (currentUser) {
+    const idx = users.findIndex(u => u.email === currentUser.email);
+    if (idx >= 0) {
+      users[idx].phone = phone;
+      users[idx].address = address;
+      localStorage.setItem("amalUsers", JSON.stringify(users));
+      currentUser = users[idx];
+      localStorage.setItem("amalCurrentUser", JSON.stringify(currentUser));
+    }
+  }
+
   closeCheckout();
   document.getElementById("successModal").classList.add("active");
   setTimeout(() => { window.open(adminWaUrl, "_blank"); }, 1200);
@@ -1747,7 +2509,7 @@ Status: 🕐 PENDING
   this.reset();
   submitBtn.disabled = false;
   submitBtn.innerHTML = 'Confirm Order';
-  showToast("✓ Order placed successfully");
+  showToast("✓ Order placed successfully", "success");
 });
 
 // ==========================================
@@ -1757,18 +2519,22 @@ function subscribeNewsletter(e) {
   e.preventDefault();
   const email = document.getElementById("newsletterEmail").value.trim();
   if (!email) return;
-  showToast("✓ Subscribed successfully!");
+  showToast("✓ Subscribed successfully!", "success");
   document.getElementById("newsletterEmail").value = "";
 }
 
 // ==========================================
 // 🔔 TOAST
 // ==========================================
-function showToast(msg) {
+function showToast(msg, type = "") {
   const toast = document.getElementById("toast");
   toast.textContent = msg;
-  toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 2800);
+  toast.className = "toast show";
+  if (type) toast.classList.add(type);
+  setTimeout(() => {
+    toast.classList.remove("show");
+    toast.classList.remove("error", "success");
+  }, 3000);
 }
 
 // ==========================================
@@ -1776,11 +2542,25 @@ function showToast(msg) {
 // ==========================================
 renderProducts();
 updateCartUI();
+updateAuthUI();
 
+// Set WhatsApp links dynamically
 const waLink = `https://wa.me/${CONFIG.ADMIN_WHATSAPP}`;
 document.getElementById("floatWa").href = waLink;
-document.getElementById("footerWa").href = waLink;
-document.getElementById("footerWa").textContent = "+" + CONFIG.ADMIN_WHATSAPP;
+
+// Close modals on Escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    document.querySelectorAll(".modal.active").forEach(m => m.classList.remove("active"));
+    document.getElementById("userMenu").classList.remove("active");
+  }
+});
+// Close modal on backdrop click
+document.querySelectorAll(".modal").forEach(modal => {
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.classList.remove("active");
+  });
+});
 </script>
 </body>
 </html>
