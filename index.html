@@ -173,12 +173,15 @@ body {
 .hero {
     position: relative;
     width: 100%;
-    min-height: 480px;
     overflow: hidden;
-    background-image: url('img0.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+    line-height: 0;
+    background: #FAF6F0;
+}
+.hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
 /* PRODUCTS */
@@ -1208,13 +1211,11 @@ body {
   }
 }
 @media (max-width: 768px) {
-  .hero { min-height: 400px; }
   .section-title { font-size: 28px; }
   .logo-img { height: 55px; max-width: 170px; }
   .header-inner { padding: 10px 15px; min-height: 75px; }
 }
 @media (max-width: 600px) {
-  .hero { min-height: 260px; }
   .section-title { font-size: 22px; }
   .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .product-card img { height: 210px; }
@@ -1249,7 +1250,6 @@ body {
   .user-menu { right: 10px; left: 10px; min-width: auto; }
 }
 @media (max-width: 380px) {
-  .hero { min-height: 220px; }
   .logo-img { height: 38px; max-width: 110px; }
   .auth-btn { font-size: 9px; padding: 5px 8px; }
 }
@@ -1291,7 +1291,9 @@ body {
 </div>
 
 <!-- ============ HERO (background image only) ============ -->
-<section class="hero"></section>
+<section class="hero">
+  <img src="cover%20page.jpg" alt="Amal Fashion — Wear your style, live your confidence" class="hero-img">
+</section>
 
 <!-- ============ PRODUCTS ============ -->
 <section id="products" class="products">
@@ -1571,11 +1573,11 @@ const CONFIG = {
 // 📦 PRODUCTS
 // ==========================================
 const products = [
-  { id: 1, name: "Premium Yellow Barka", price: 1899, oldPrice: 2200, image: "img1.jpg", badge: "Bestseller" },
-  { id: 2, name: "Elegant Bronze Abaya", price: 2450, oldPrice: 2500, image: "img2.jpg", badge: "New" },
-  { id: 3, name: "Dubai Style Black Abaya", price: 2450, oldPrice: 2500, image: "img3.jpg", badge: "" },
-  { id: 4, name: "Luxury Teal Abaya", price: 2450, oldPrice: 2500, image: "img4.jpg", badge: "" },
-  { id: 5, name: "Classic Blue Abaya", price: 2450, oldPrice: 2500, image: "img5.jpg", badge: "" },
+  { id: 1, name: "Premium Yellow Abaya", price: 1899, oldPrice: 2200, image: "img1.jpg", badge: "Bestseller" },
+  { id: 2, name: "Cream Ikat Barka", price: 2450, oldPrice: 2500, image: "img2.jpg", badge: "New" },
+  { id: 3, name: "Dusty Rose Embroidered Abaya", price: 2450, oldPrice: 2500, image: "img3.jpg", badge: "" },
+  { id: 4, name: "Green Floral Embroidered Abaya", price: 2450, oldPrice: 2500, image: "img4.jpg", badge: "" },
+  { id: 5, name: "Pink Beaded Sleeve Abaya", price: 2450, oldPrice: 2500, image: "img5.jpg", badge: "" },
   { id: 6, name: "Embroidered Olive Barka", price: 2450, oldPrice: 2500, image: "img6.jpg", badge: "Premium" },
   { id: 7, name: "Maroon Open Abaya", price: 2450, oldPrice: 2500, image: "img7.jpg", badge: "" },
   { id: 8, name: "Silk Premium Black Barka", price: 2450, oldPrice: 2500, image: "img8.jpg", badge: "Luxury" }
