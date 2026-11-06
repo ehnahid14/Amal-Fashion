@@ -80,24 +80,6 @@ body {
   flex-shrink: 0;
   flex-wrap: wrap;
 }
-.track-btn {
-  background: transparent;
-  color: var(--brown);
-  border: 1.5px solid var(--gold);
-  padding: 9px 16px;
-  border-radius: 30px;
-  font-family: inherit;
-  font-weight: 600;
-  font-size: 12px;
-  cursor: pointer;
-  transition: all 0.3s;
-  white-space: nowrap;
-}
-.track-btn:hover {
-  background: var(--brown);
-  color: var(--gold-light);
-  border-color: var(--brown);
-}
 .auth-btn {
   background: transparent;
   color: var(--brown);
@@ -186,126 +168,17 @@ body {
 }
 
 /* ============================
-   HERO
+   HERO (only background image, no text/button)
 ============================ */
 .hero {
-  position: relative;
-  width: 100%;
-  min-height: 480px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  background-image: url('https://i.ibb.co.com/mFyp41T1/Chat-GPT-Image-Sep-25-2026-09-03-04-PM.png');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  padding: 60px 20px;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.12);
-  z-index: 1;
-  pointer-events: none;
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-  width: 100%;
-  animation: fadeUp 0.9s ease;
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.hero-title {
-  font-family: 'Poppins', 'Times New Roman', serif;
-  font-size: 60px;
-  color: #ffffff;
-  font-weight: 400;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  margin: 0 0 32px 0;
-  line-height: 1.15;
-  text-shadow: 0 3px 25px rgba(0, 0, 0, 0.6);
-}
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  background: transparent;
-  color: #ffffff;
-  padding: 16px 44px;
-  text-decoration: none;
-  font-weight: 700;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  transition: all 0.3s;
-  border: 2px solid #ffffff;
-  border-radius: 0;
-  cursor: pointer;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-}
-.btn-primary:hover {
-  background: #ffffff;
-  color: #4A2C1A;
-  text-shadow: none;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-.btn-primary .cart-symbol {
-  font-size: 18px;
-  line-height: 1;
-}
-
-/* ============================
-   FEATURE STRIP
-============================ */
-.features-strip {
-  background: var(--cream);
-  padding: 45px 0;
-  border-bottom: 1px solid rgba(184, 132, 58, 0.15);
-}
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.feature-item {
-  text-align: center;
-  padding: 15px 10px;
-  transition: transform 0.3s;
-}
-.feature-item:hover { transform: translateY(-4px); }
-.feature-icon {
-  width: 50px;
-  height: 50px;
-  margin: 0 auto 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: rgba(184, 132, 58, 0.1);
-  color: var(--gold);
-  font-size: 22px;
-}
-.feature-item h4 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--brown);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  line-height: 1.5;
+    position: relative;
+    width: 100%;
+    min-height: 480px;
+    overflow: hidden;
+    background-image: url('img0.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 /* PRODUCTS */
@@ -1069,129 +942,7 @@ body {
 }
 .btn-continue:hover { background: var(--brown); color: var(--gold-light); }
 
-/* TRACK */
-.track-input-box { display: flex; gap: 10px; margin-bottom: 20px; }
-.track-input-box input {
-  flex: 1;
-  padding: 14px 16px;
-  border: 1.5px solid rgba(184, 132, 58, 0.3);
-  border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  text-transform: uppercase;
-  background: #fff;
-  color: var(--brown);
-  letter-spacing: 1px;
-}
-.track-input-box input:focus { outline: none; border-color: var(--gold); }
-.track-input-box button {
-  background: var(--brown);
-  color: var(--gold-light);
-  border: none;
-  padding: 0 26px;
-  border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  cursor: pointer;
-  letter-spacing: 1px;
-  font-size: 13px;
-  transition: all 0.2s;
-}
-.track-input-box button:hover { background: var(--gold); color: #fff; }
-
-.status-result { display: none; margin-top: 25px; }
-.status-result.active { display: block; }
-.status-header-box {
-  background: linear-gradient(135deg, var(--brown), var(--brown-dark));
-  color: #fff;
-  padding: 22px;
-  border-radius: 10px;
-  margin-bottom: 25px;
-  text-align: center;
-  border: 1px solid var(--gold);
-}
-.status-header-box h4 {
-  font-size: 18px;
-  margin-bottom: 6px;
-  color: var(--gold-light);
-  font-weight: 600;
-  font-family: 'Poppins', sans-serif;
-}
-.status-header-box .order-id {
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-  opacity: 0.85;
-  margin-bottom: 14px;
-  letter-spacing: 2px;
-}
-.status-badge {
-  display: inline-block;
-  padding: 7px 18px;
-  border-radius: 30px;
-  font-size: 11px;
-  font-weight: 700;
-  background: var(--gold);
-  color: #fff;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  font-family: 'Poppins', sans-serif;
-}
-
-.timeline { position: relative; padding-left: 40px; margin-bottom: 25px; }
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  bottom: 12px;
-  width: 2px;
-  background: rgba(184, 132, 58, 0.25);
-}
-.timeline-item { position: relative; padding-bottom: 26px; }
-.timeline-item:last-child { padding-bottom: 0; }
-.timeline-dot {
-  position: absolute;
-  left: -40px;
-  top: 0;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: var(--beige);
-  color: var(--brown);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  border: 2px solid #d8c8b0;
-}
-.timeline-item.done .timeline-dot { background: var(--gold); color: #fff; border-color: var(--gold); }
-.timeline-item.current .timeline-dot {
-  background: var(--brown);
-  color: var(--gold-light);
-  border-color: var(--gold);
-  animation: pulse 1.8s infinite;
-}
-@keyframes pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(184, 132, 58, 0.5); }
-  50% { transform: scale(1.05); box-shadow: 0 0 0 8px rgba(184, 132, 58, 0); }
-}
-.timeline-content h5 {
-  font-size: 15px;
-  color: #8a7a6a;
-  margin-bottom: 3px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-}
-.timeline-item.done .timeline-content h5 { color: var(--gold); }
-.timeline-item.current .timeline-content h5 { color: var(--brown); font-weight: 700; }
-.timeline-content p {
-  font-size: 12.5px;
-  color: #a89888;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-}
-
+/* MY ORDERS LIST */
 .track-order-summary {
   background: #fff;
   padding: 18px;
@@ -1457,20 +1208,13 @@ body {
   }
 }
 @media (max-width: 768px) {
-  .hero { min-height: 400px; padding: 50px 15px; }
-  .hero-title { font-size: 42px; letter-spacing: 4px; margin-bottom: 25px; }
-  .btn-primary { padding: 13px 32px; font-size: 12px; letter-spacing: 2px; gap: 10px; }
-  .btn-primary .cart-symbol { font-size: 16px; }
+  .hero { min-height: 400px; }
   .section-title { font-size: 28px; }
   .logo-img { height: 55px; max-width: 170px; }
   .header-inner { padding: 10px 15px; min-height: 75px; }
-  .features-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 }
 @media (max-width: 600px) {
-  .hero { min-height: 340px; padding: 40px 12px; }
-  .hero-title { font-size: 28px; letter-spacing: 3px; margin-bottom: 20px; }
-  .btn-primary { padding: 11px 24px; font-size: 10px; letter-spacing: 2px; gap: 8px; }
-  .btn-primary .cart-symbol { font-size: 13px; }
+  .hero { min-height: 260px; }
   .section-title { font-size: 22px; }
   .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .product-card img { height: 210px; }
@@ -1484,19 +1228,12 @@ body {
   .float-wa { width: 52px; height: 52px; font-size: 24px; bottom: 20px; right: 20px; }
   .float-wa svg { width: 24px; height: 24px; }
   .success-icon { width: 70px; height: 70px; font-size: 34px; }
-  .track-btn, .auth-btn { font-size: 10px; padding: 6px 10px; }
+  .auth-btn { font-size: 10px; padding: 6px 10px; }
   .logo-img { height: 42px; max-width: 130px; }
   .header-inner { padding: 8px 12px; min-height: 60px; gap: 6px; }
   .cart-icon { font-size: 20px; padding: 6px 10px; }
   .user-chip span { max-width: 60px; font-size: 11px; }
   .section-tagline { font-size: 10px; letter-spacing: 3px; }
-  .track-input-box { flex-direction: column; }
-  .track-input-box button { padding: 14px; }
-  .timeline { padding-left: 34px; }
-  .features-strip { padding: 35px 0; }
-  .features-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-  .feature-icon { width: 44px; height: 44px; font-size: 20px; }
-  .feature-item h4 { font-size: 10px; letter-spacing: 1px; }
   .footer { padding: 50px 0 25px; }
   .footer-grid {
     grid-template-columns: 1fr;
@@ -1512,12 +1249,9 @@ body {
   .user-menu { right: 10px; left: 10px; min-width: auto; }
 }
 @media (max-width: 380px) {
-  .hero { min-height: 300px; padding: 35px 10px; }
-  .hero-title { font-size: 22px; letter-spacing: 2px; margin-bottom: 15px; }
-  .btn-primary { padding: 9px 20px; font-size: 9px; letter-spacing: 1.5px; gap: 6px; }
-  .btn-primary .cart-symbol { font-size: 12px; }
+  .hero { min-height: 220px; }
   .logo-img { height: 38px; max-width: 110px; }
-  .track-btn, .auth-btn { font-size: 9px; padding: 5px 8px; }
+  .auth-btn { font-size: 9px; padding: 5px 8px; }
 }
 </style>
 </head>
@@ -1527,12 +1261,11 @@ body {
 <header class="header">
   <div class="container header-inner">
     <a href="#" class="logo-wrapper">
-      <img src="https://i.ibb.co.com/HDxSq76f/amal-fashion-logo-removebg-preview.png"
+      <img src="amal fashion logo.jpg"
            alt="Amal Fashion"
            class="logo-img">
     </a>
     <div class="header-actions">
-      <button class="track-btn" onclick="openTrack()">🚚 Track Order</button>
       <div id="authArea">
         <button class="auth-btn" onclick="openAuth('login')">Login</button>
         <button class="auth-btn primary" onclick="openAuth('signup')">Sign Up</button>
@@ -1552,22 +1285,13 @@ body {
   </div>
   <ul>
     <li><a href="#" onclick="openMyOrders(event)">📦 My Orders</a></li>
-    <li><a href="#" onclick="openTrack()">🚚 Track Order</a></li>
     <li><a href="#" onclick="showToast('Profile page coming soon')">👤 My Profile</a></li>
     <li><a href="#" class="logout" onclick="logoutUser(event)">🚪 Logout</a></li>
   </ul>
 </div>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="hero-content">
-    <h1 class="hero-title">CRAFTED WITH PURPOSE</h1>
-    <a href="#products" class="btn-primary">
-      ADD TO CART
-      <span class="cart-symbol">🛒</span>
-    </a>
-  </div>
-</section>
+<!-- ============ HERO (background image only) ============ -->
+<section class="hero"></section>
 
 <!-- ============ PRODUCTS ============ -->
 <section id="products" class="products">
@@ -1818,30 +1542,11 @@ body {
     <div class="order-details-box" id="successDetails"></div>
     <p style="font-size:12.5px; color:#8a7a6a; background:#fff; padding:12px; border-radius:8px; border:1px dashed rgba(184,132,58,0.4); font-family:'Poppins',sans-serif;">
       💡 <b style="color:var(--brown);">Order ID সংরক্ষণ করুন</b><br>
-      "Track Order" button থেকে যেকোনো সময় status দেখতে পারবেন।
+      "My Orders" থেকে যেকোনো সময় status দেখতে পারবেন।
     </p>
     <div class="success-actions">
       <a href="#" class="btn-wa-confirm" id="waConfirmBtn" target="_blank">💬 Send Confirmation on WhatsApp</a>
       <button class="btn-continue" onclick="closeSuccess()">Continue Shopping</button>
-    </div>
-  </div>
-</div>
-
-<!-- ============ TRACK MODAL ============ -->
-<div class="modal track-modal" id="trackModal">
-  <div class="modal-content">
-    <span class="close-modal" onclick="closeTrack()">✕</span>
-    <h3>Track Your Order</h3>
-    <p style="color:#8a7a6a; font-size:13px; margin-bottom:18px; text-align:center; font-family:'Poppins',sans-serif;">আপনার Order ID লিখুন</p>
-    <div class="track-input-box">
-      <input type="text" id="trackInput" placeholder="AMAL-XXXXXXXX" autocomplete="off">
-      <button onclick="trackOrder()">Track</button>
-    </div>
-    <div class="status-result" id="statusResult"></div>
-    <div class="not-found" id="notFound">
-      <div class="icon">😕</div>
-      <h4>Order পাওয়া যায়নি</h4>
-      <p>Order ID টি check করুন।<br>সাহায্যের জন্য WhatsApp এ message দিন।</p>
     </div>
   </div>
 </div>
@@ -1859,7 +1564,6 @@ const CONFIG = {
   NAGAD_NUMBER: "01969120711",
   ROCKET_NUMBER: "01969120711",
   GOOGLE_SHEET_URL: "https://script.google.com/macros/s/AKfycbxtlfwqSnAaxgR1feFh3D5O1Jq4zF157nuzeaNLQtaAaT1GXPsNDu5dImH-oGo_O705JQ/exec",
-  // Demo verification code (in real app, this would be sent via email backend)
   DEMO_VERIFICATION_CODE: "123456"
 };
 
@@ -1884,7 +1588,7 @@ let cart = JSON.parse(localStorage.getItem("amalCart")) || [];
 // ==========================================
 let currentUser = JSON.parse(localStorage.getItem("amalCurrentUser")) || null;
 let users = JSON.parse(localStorage.getItem("amalUsers")) || [];
-let pendingUser = null; // User waiting for verification
+let pendingUser = null;
 let resendTimer = null;
 
 // ==========================================
@@ -2036,7 +1740,6 @@ function handleLogin(e) {
     showVerifyScreen(email);
     return;
   }
-  // Success
   currentUser = user;
   localStorage.setItem("amalCurrentUser", JSON.stringify(currentUser));
   updateAuthUI();
@@ -2069,7 +1772,6 @@ function handleSignup(e) {
     return;
   }
 
-  // Create pending user
   pendingUser = { name, email, password, verified: false, createdAt: new Date().toISOString() };
   showVerifyScreen(email);
   showToast("📧 Verification code পাঠানো হয়েছে (demo: 123456)", "success");
@@ -2125,10 +1827,8 @@ function handleVerify() {
     document.getElementById("verifyError").textContent = "❌ ভুল কোড। Demo code: 123456";
     return;
   }
-  // Verified
   if (pendingUser) {
     pendingUser.verified = true;
-    // Save user
     const existingIndex = users.findIndex(u => u.email === pendingUser.email);
     if (existingIndex >= 0) users[existingIndex] = pendingUser;
     else users.push(pendingUser);
@@ -2210,7 +1910,6 @@ function closeUserMenu() {
   document.getElementById("userMenu").classList.remove("active");
 }
 
-// Close user menu on outside click
 document.addEventListener("click", (e) => {
   const menu = document.getElementById("userMenu");
   const chip = document.querySelector(".user-chip");
@@ -2222,7 +1921,7 @@ document.addEventListener("click", (e) => {
 });
 
 // ==========================================
-// 📦 MY ORDERS (from local history)
+// 📦 MY ORDERS
 // ==========================================
 function openMyOrders(e) {
   if (e) e.preventDefault();
@@ -2270,7 +1969,6 @@ function openCheckout() {
   toggleCart();
   updatePaymentInstructions();
   updateOrderSummary();
-  // Prefill from logged in user
   if (currentUser) {
     if (currentUser.name) document.getElementById("customerName").value = currentUser.name;
     if (currentUser.phone) document.getElementById("customerPhone").value = currentUser.phone;
@@ -2280,12 +1978,6 @@ function openCheckout() {
 }
 function closeCheckout() { document.getElementById("checkoutModal").classList.remove("active"); }
 function closeSuccess() { document.getElementById("successModal").classList.remove("active"); }
-function openTrack() {
-  document.getElementById("trackModal").classList.add("active");
-  document.getElementById("statusResult").classList.remove("active");
-  document.getElementById("notFound").classList.remove("active");
-}
-function closeTrack() { document.getElementById("trackModal").classList.remove("active"); }
 
 function updateOrderSummary() {
   const subtotal = getCartTotal();
@@ -2315,92 +2007,6 @@ document.addEventListener("change", e => {
 });
 
 // ==========================================
-// 🚚 TRACK ORDER
-// ==========================================
-async function trackOrder() {
-  const input = document.getElementById("trackInput").value.trim().toUpperCase();
-  const resultEl = document.getElementById("statusResult");
-  const notFoundEl = document.getElementById("notFound");
-  if (!input) { showToast("Order ID লিখুন", "error"); return; }
-  resultEl.classList.remove("active");
-  notFoundEl.classList.remove("active");
-  resultEl.innerHTML = '<p style="text-align:center; padding:20px; color:#8a7a6a;">⏳ Searching...</p>';
-  resultEl.classList.add("active");
-  try {
-    const res = await fetch(`${CONFIG.GOOGLE_SHEET_URL}?trackId=${encodeURIComponent(input)}`);
-    const data = await res.json();
-    if (data.status === "success" && data.order) {
-      renderOrderStatus(data.order, input);
-      resultEl.classList.add("active");
-      notFoundEl.classList.remove("active");
-    } else {
-      resultEl.classList.remove("active");
-      notFoundEl.classList.add("active");
-    }
-  } catch (err) {
-    resultEl.classList.remove("active");
-    notFoundEl.classList.add("active");
-  }
-}
-
-function renderOrderStatus(order, orderId) {
-  const status = (order.orderStatus || "pending").toLowerCase().trim();
-  const statuses = [
-    { key: "pending",   icon: "🕐", title: "Order Placed",     desc: "আপনার অর্ডার গ্রহণ করা হয়েছে" },
-    { key: "confirmed", icon: "✓",  title: "Order Confirmed",  desc: "Admin আপনার অর্ডার confirm করেছে" },
-    { key: "shipped",   icon: "🚚", title: "Out for Delivery", desc: "আপনার পণ্য পাঠানো হয়েছে" },
-    { key: "delivered", icon: "🎉", title: "Delivered",        desc: "পণ্য আপনার কাছে পৌঁছে দেওয়া হয়েছে" }
-  ];
-  const currentIndex = statuses.findIndex(s => s.key === status);
-  const statusLabel = { pending: "PENDING", confirmed: "CONFIRMED", shipped: "OUT FOR DELIVERY", delivered: "DELIVERED" };
-
-  const timelineHtml = statuses.map((s, idx) => {
-    let cls = "";
-    if (idx < currentIndex) cls = "done";
-    else if (idx === currentIndex) cls = "current";
-    return `
-      <div class="timeline-item ${cls}">
-        <div class="timeline-dot">${idx < currentIndex ? "✓" : (idx === currentIndex ? s.icon : idx + 1)}</div>
-        <div class="timeline-content">
-          <h5>${s.title}</h5>
-          <p>${s.desc}</p>
-        </div>
-      </div>`;
-  }).join("");
-
-  const itemsList = (order.items || "").split("\n").map(l => `• ${l}`).join("<br>");
-
-  document.getElementById("statusResult").innerHTML = `
-    <div class="status-header-box">
-      <h4>Order Details</h4>
-      <div class="order-id">🆔 ${orderId}</div>
-      <div class="status-badge">${statusLabel[status] || "PENDING"}</div>
-    </div>
-    <div class="timeline">${timelineHtml}</div>
-    <div class="track-order-summary">
-      <div class="row"><strong>👤 Name</strong><span>${order.name || "-"}</span></div>
-      <div class="row"><strong>📱 Phone</strong><span>${order.phone || "-"}</span></div>
-      <div class="row"><strong>💳 Payment</strong><span>${order.payment || "-"}</span></div>
-      <div class="row" style="flex-direction:column; align-items:flex-start; gap:6px; padding-top:8px;">
-        <strong>📦 Items:</strong>
-        <div style="font-size:12.5px; color:#8a7a6a; line-height:1.6;">${itemsList}</div>
-      </div>
-      <div class="row" style="color:var(--brown); font-weight:700; font-size:15px; padding-top:8px; border-top:2px solid var(--gold);">
-        <strong>💰 Total</strong><span style="color:var(--gold); font-size:17px; font-weight:700;">৳${order.total || 0}</span>
-      </div>
-    </div>
-    <button onclick="contactAdmin('${orderId}')" style="width:100%; margin-top:15px; padding:13px; background:var(--success); color:#fff; border:none; border-radius:30px; font-family:'Poppins',sans-serif; font-weight:600; cursor:pointer; font-size:12px; letter-spacing:1px;">
-      💬 Contact Admin
-    </button>
-  `;
-}
-
-function contactAdmin(orderId) {
-  const msg = `আসসালামু আলাইকুম। আমার Order ID: ${orderId}। আমি আমার order এর status জানতে চাই।`;
-  window.open(`https://wa.me/${CONFIG.ADMIN_WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank");
-}
-
-// ==========================================
 // 📤 SUBMIT ORDER
 // ==========================================
 document.getElementById("orderForm").addEventListener("submit", async function(e) {
@@ -2428,7 +2034,6 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
     subtotal, delivery, total, date: now, orderStatus: "pending"
   };
 
-  // Save to local order history
   const history = JSON.parse(localStorage.getItem("amalOrderHistory") || "[]");
   history.push({
     orderId, total, payment, date: now,
@@ -2438,7 +2043,6 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
   });
   localStorage.setItem("amalOrderHistory", JSON.stringify(history));
 
-  // Google Sheet
   try {
     const params = new URLSearchParams({
       orderId: orderData.orderId, name, phone, address, note, payment,
@@ -2448,7 +2052,6 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
     console.log("✅ Order sent to Google Sheet");
   } catch (err) { console.error("❌ Sheet save failed:", err); }
 
-  // WhatsApp message
   const adminMessage = `🔔 *NEW ORDER - Amal Fashion*
 
 🆔 Order ID: ${orderId}
@@ -2487,7 +2090,6 @@ Status: 🕐 PENDING
   `;
   document.getElementById("waConfirmBtn").href = adminWaUrl;
 
-  // Save phone/address to user profile if logged in
   if (currentUser) {
     const idx = users.findIndex(u => u.email === currentUser.email);
     if (idx >= 0) {
@@ -2544,18 +2146,15 @@ renderProducts();
 updateCartUI();
 updateAuthUI();
 
-// Set WhatsApp links dynamically
 const waLink = `https://wa.me/${CONFIG.ADMIN_WHATSAPP}`;
 document.getElementById("floatWa").href = waLink;
 
-// Close modals on Escape key
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     document.querySelectorAll(".modal.active").forEach(m => m.classList.remove("active"));
     document.getElementById("userMenu").classList.remove("active");
   }
 });
-// Close modal on backdrop click
 document.querySelectorAll(".modal").forEach(modal => {
   modal.addEventListener("click", (e) => {
     if (e.target === modal) modal.classList.remove("active");
